@@ -17,4 +17,20 @@ const removeNthNodeFromEnd = (head, n) => {
 
   let slow = dummy.next
   let fast = dummy.next
+
+  for (let i = 0; i < n; i++) {
+    fast = fast.next
+  }
+
+  if (!fast) {
+    return dummy.next.next
+  }
+
+  while (fast.next) {
+    slow = slow.next
+    fast = fast.next
+  }
+  slow.next = slow.next.next
+  return dummy.next
+
 }
