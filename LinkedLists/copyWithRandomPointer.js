@@ -1,4 +1,4 @@
-//solve using map, hash like solution
+//solve using map
 
 const randomListPointer = (head) => {
   //set map as the Map object
