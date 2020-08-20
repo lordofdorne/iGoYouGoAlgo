@@ -1,6 +1,7 @@
 const flattenTree = (root) => {
   if (!root) return root
 
+  //helper function that will be used to push a node and its children into an array
   let helper = (node, stack = []) => {
     //push the node to the stack
     stack.push(node)

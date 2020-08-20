@@ -31,7 +31,7 @@ const flatten = (head) => {
 
     //this problem is DFS so we check as deep as possible, if the node has a child...
     if (node.child) {
-      //set the next node as a variabls
+      //set the next node as a variable so we can store it
       const nextNode = node.next;
       //set the whole child branch as the next node
       node.next = node.child;
