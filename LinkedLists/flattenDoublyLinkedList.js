@@ -21,3 +21,35 @@ const flattenList = head => {
   }
   return head
 }
+//more readable solution
+const flatten = (head) => {
+  if (!head) return head;
+
+  function traverse(node) {
+    //if there is no next node or a child return that node 
+    if (!node.next && !node.child) return node;
+
+    //this problem is DFS so we check as deep as possible, if the node has a child...
+    if (node.child) {
+      //set the next node as a variabls
+      const nextNode = node.next;
+      //set the whole child branch as the next node
+      node.next = node.child;
+      //that next nodes previous elemenet is now the current elem
+      node.next.prev = node;
+      //set child to null
+      node.child = null;
+
+
+      if (nextNode) {
+        const tailNode = traverse(node.next);
+        tailNode.next = nextNode;
+        nextNode.prev = tailNode;
+      }
+    }
+    return traverse(node.next);
+  }
+  traverse(head);
+  return head;
+
+};
