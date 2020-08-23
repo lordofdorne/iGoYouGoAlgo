@@ -39,9 +39,7 @@ const dfs = (rooms, row, col, distance) => {
   //to far to the left
   const moreThanHigherBound = row >= rooms.length || col >= rooms[0].length;
   //the last check is a case where we already found a shorter distance or hit a wall, if thats the case we need to simply return
-  if (lessThanLowerBound || moreThanHigherBound || rooms[row][col] === -1 || rooms[row][col] < distance) {
-    return;
-  }
+  if (lessThanLowerBound || moreThanHigherBound || rooms[row][col] === -1 || rooms[row][col] < distance) return;
   //record the distance we have at the current cell
   rooms[row][col] = distance;
 
