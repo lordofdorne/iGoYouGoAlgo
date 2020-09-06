@@ -1,4 +1,4 @@
-const moveZeros = num => {
+const moveZeros = nums => {
   let i = 0
   let count = 0
 
