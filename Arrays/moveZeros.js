@@ -14,3 +14,5 @@ const moveZeros = nums => {
   }
   return nums
 }
+
+//least to bg sorted is array.sort(a-b)
