@@ -29,3 +29,51 @@ const twoCitySchedCost = function (costs) {
 
   return sorted.reduce((total, cost, index) => (index < people) ? total + cost[0] : total + cost[1], 0);
 };
+
+//-----------------------------------------
+
+//take absolute difference and sort from largest to smalles
+//set a cap, per city a and city b -> cap = costs.length / 2
+//have counters to keep track of how many people we fly into the city
+//when adding to the sum we pick the city with lower cost, as long as the city is under cap
+
+const secondSolution = costs => {
+
+  let sorted = costs.sort((a, b) => {
+    return Math.abs(b[0] - b[1] - Math.abs(a[0] - a[1]))
+  })
+  let cap = costs.length / 2
+  let sum = 0
+  //counters
+  let cityA = 0
+  let cityB = 0
+
+  for (let i = 0; i < costs.length; i++) {
+    let costOfCityA = cost[i][0]
+    let costOfCityB = cost[i][1]
+
+    //if cityA is cheaper
+    if (costOfCityA <= costOfCityB) {
+      if (cityA < cap) {
+        sum += costOfCityA
+        cityA++
+      }
+      //else if we reach the cap
+      else {
+        sum += costOfCityB
+        cityB++
+      }
+    }
+    //same thing when sending to cityB but reversed
+    else {
+      if (cityB < cap) {
+        sum += costOfCityB
+        cityB++
+      } else {
+        sum += costOfCityA
+        cityA++
+      }
+    }
+  }
+  return sum
+}
