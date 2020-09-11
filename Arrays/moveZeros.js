@@ -15,4 +15,22 @@ const moveZeros = nums => {
   return nums
 }
 
-//least to bg sorted is array.sort(a-b)
+//make variable 'placeNonZeros' or 'j'
+//time complexity = O(n)
+//space = O(1)
+const secondSolution = nums => {
+  let placeNonZeros = 0
+
+  //move non zeros to the position of placenonzeros, move placenonzeros up
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] !== 0) {
+      nums[placeNonZeros] = nums[i]
+      placeNonZeros++
+    }
+  }
+  //turn everything else into zeros
+  for (let i = placeNonZeros; i < nums.length; i++) {
+    nums[i] = 0
+  }
+  return nums
+}
