@@ -48,7 +48,7 @@ const secondSolution = costs => {
   let cityA = 0
   let cityB = 0
 
-  for (let i = 0; i < costs.length; i++) {
+  for (let i = 0; i < sorted.length; i++) {
     let costOfCityA = cost[i][0]
     let costOfCityB = cost[i][1]
 
