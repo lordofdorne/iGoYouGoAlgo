@@ -27,7 +27,7 @@ const numIslands = grid => {
     }
   }
   const dfs = (row, col) => {
-    if (row < 0 || row > grid.length || grid[row][col] !== 1) return
+    if (row < 0 || row >= grid.length || grid[row][col] !== 1) return
 
     grid[row][col] = '0'
 
