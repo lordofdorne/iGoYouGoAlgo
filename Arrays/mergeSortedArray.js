@@ -17,7 +17,7 @@
 
 const merge = (num1, num2, m, n) => {
   num1.splice(m, n, ...num2)
-  num2.sort((a, b) => {
+  num1.sort((a, b) => {
     if (a > b) return 1
     if (a === b) return 0
     if (a < b) return -1
