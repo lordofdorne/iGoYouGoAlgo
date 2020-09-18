@@ -24,16 +24,21 @@ function TreeNode(val, left, right) {
 
 const build = (preorder, inorder) => {
 
+  //start and end are the bounds
   const helper = (start, end) => {
     if (start > end) return null
 
+    //get the first element from the preorder
     let node = preorder.shift()
+    //initialize it as the root 
     let root = new TreeNode(node)
+    //the left has to go all the way to the left, inorde is left root right
     node.left = helper(start, inorder.indexOf(node) - 1)
     node.right = helper(inorder.indexOf(node) + 1, end)
 
     return root
   }
+  //0 because the index of the root and the array
   return helper(0, inorder.length - 1)
 
 }
