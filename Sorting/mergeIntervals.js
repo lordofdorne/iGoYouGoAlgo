@@ -30,5 +30,6 @@ const merge = intervals => {
       pre[1] = Math.max(pre[1], intervals[i][0])
     }
   }
+  //return result string
   return res
 }
