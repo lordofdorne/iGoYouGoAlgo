@@ -32,7 +32,7 @@ const removeDuplicates = (s, k) => {
     let curr = s[i]
     let peek = stack[stack.length - 1]
 
-    if (stack.length === 0 || peek !== curr) {
+    if (stack.length === 0 || peek[0] !== curr) {
       stack.push([curr, 1])
     }
     else {
