@@ -16,19 +16,26 @@
 
 // The total minimum cost is 10 + 30 + 50 + 20 = 110 to have half the people interviewing in each city.
 
+twocity = costs => {
+  //order the array by the cost of a - b.  If a is cheaper then b, this number will be negative but will represent the money you will save by flying to a instead of b.
+  //At this point, you will have a list organized by the money you would save flying to A from greatest savings to least.
+  //Then iterate through the array taking the cost of a from the first half and the cost of b for the second half.
+
+  const monelLost = arr => {
+
+    return arr[0] - arr[1]
+  }
+  costs.sort((a, b) => monelLost(a) - monelLost(b))
+  let totalCost = 0
+
+  for (let i = 0, j = costs.length / 2; j < costs.length; i++, j++) {
+    totalCost += costs[i][0] + costs[j][1]
+  }
+  return totalCost
+
+}
 
 
-const twoCitySchedCost = function (costs) {
-
-  //the amount of people is half the amount of elements in the costs array
-  let people = costs.length / 2
-  //sort the array to in ascending order, since the arrays are nested we must take extra precaution
-  let sorted = costs.sort((a, b) => (a[0] - a[1]) - (b[0] - b[1]));
-
-  //reduce the array, if the index is less than the amount of people add the cheaper cost, else use the more expesive cost
-
-  return sorted.reduce((total, cost, index) => (index < people) ? total + cost[0] : total + cost[1], 0);
-};
 
 //-----------------------------------------
 
