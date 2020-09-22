@@ -21,19 +21,20 @@
 //  head -> (child -> ... ) -> (next -> ...)
 
 const flatten = (head, tail = null) => {
-  if (!head) return null
+  if (!head) return null;
 
   if (head.next) {
-    flatten(head.next, tail)
-  } else if (tail) {
-    head.next = tail
-    tail.prev = head
+    flatten(head.next, tail);
+  } else if (tail) {            // the tail argument is used to glue the end of the
+    head.next = tail;                  // 'child list' to the begining of the 'next list'
+    tail.prev = head;
   }
 
   if (head.child) {
-    head.next = flatten(head.child, head)
-    head.next.prev = head
-    head.child = null
+    head.next = flatten(head.child, head.next);
+    head.next.prev = head;
+    head.child = null;
   }
-  return head
+
+  return head;
 };
