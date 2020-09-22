@@ -19,6 +19,13 @@
 // child -> ... -> null
 
 //  head -> (child -> ... ) -> (next -> ...)
+//the tail is basically the glue
+//if no head return null
+//check for head.next if it exists flatten with a tail
+//check tail, if it exists we can link it to head.next
+//if child exists we set its tail to head.next and its prev to the head and ending the list by setting child to null
+//lastly we return head
+
 
 const flatten = (head, tail = null) => {
   if (!head) return null;
