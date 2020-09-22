@@ -1,55 +1,39 @@
-const flattenList = head => {
 
-  let curr = head
+// You are given a doubly linked list which in addition to the next and previous pointers, it could have a child pointer, which may or may not point to a separate doubly linked list. These child lists may have one or more children of their own, and so on, to produce a multilevel data structure, as shown in the example below.
 
-  while (curr) {
-    let next = curr.next
+// Flatten the list so that all the nodes appear in a single-level, doubly linked list. You are given the head of the first level of the list.
 
-    if (curr.child) {
-      let child = flattenList(curr.child)
-      curr.next = child
-      child.prev = current
-      curr.child = null
 
-      while (curr.next) {
-        curr = curr.next
-      }
-      if (next) next.prev = curr
-      curr.next = next
-    }
-    curr = curr.next
+
+// Example 1:
+
+// Input: head = [1,2,3,4,5,6,null,null,null,7,8,9,10,null,null,11,12]
+// Output: [1,2,3,7,8,11,12,9,10,4,5,6]
+
+
+// we simply flatten the list starting at next, flatten the list starting at child, then glue everything together,
+
+
+//  head -> next -> ... -> null
+//   |
+// child -> ... -> null
+
+//  head -> (child -> ... ) -> (next -> ...)
+
+const flatten = (head, tail = null) => {
+  if (!head) return null
+
+  if (head.next) {
+    flatten(head.next, tail)
+  } else if (tail) {
+    head.next = tail
+    tail.prev = head
+  }
+
+  if (head.child) {
+    head.next = flatten(head.child, head)
+    head.next.prev = head
+    head.child = null
   }
   return head
-}
-//more readable solution
-const flatten = (head) => {
-  if (!head) return head;
-
-  function traverse(node) {
-    //if there is no next node or a child return that node 
-    if (!node.next && !node.child) return node;
-
-    //this problem is DFS so we check as deep as possible, if the node has a child...
-    if (node.child) {
-      //set the next node as a variable so we can store it
-      const nextNode = node.next;
-      //set the whole child branch as the next node
-      node.next = node.child;
-      //that next nodes previous elemenet is now the current elem
-      node.next.prev = node;
-      //set child to null
-      node.child = null;
-
-
-      if (nextNode) {
-        const tailNode = traverse(node.next);
-        tailNode.next = nextNode;
-        nextNode.prev = tailNode;
-      }
-    }
-    return traverse(node.next);
-  }
-  traverse(head);
-  return head;
-
 };
