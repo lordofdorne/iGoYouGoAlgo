@@ -23,6 +23,7 @@
 const flatten = (head, tail = null) => {
   if (!head) return null;
 
+  //flatten next get a tail
   if (head.next) {
     flatten(head.next, tail);
   } else if (tail) {            // the tail argument is used to glue the end of the
