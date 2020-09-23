@@ -19,57 +19,62 @@
 // Output:
 // [[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[110,0,0,0,114],[210,0,0,0,214],[310,0,0,113,314],[410,0,0,213,414],[610,211,112,313,614],[710,311,412,613,714],[810,411,512,713,1014]]
 
-const candyCrush = board => {
-  let rows = board.length
-  let colums = board[0].length
-  let runAgain = false
 
+
+const candyCrush = (board) => {
+  //set values needed for board
+  let rows = board.length;
+  let columns = board[0].length;
+  let runAgain = false;
+
+  //horizonatal check
+  //nested loop through values; col + 2 because we need to check values next in line like candy crush
   for (let row = 0; row < rows; row++) {
-    for (let col = 0; col + 2 < colums; col++) {
-      let curr = Math.abs(board[row][col])
+    for (let col = 0; col + 2 < columns; col++) {
+      let curr = Math.abs(board[row][col]);
+      //checking to see if the current number matches with thr 2 next in line if not we need to crush
       if (
         curr !== 0 &&
-        curr !== Math.abs(board[row][col + 1]) &&
-        curr !== Math.abs(board[row][col + 2])
-
+        curr === Math.abs(board[row][col + 1]) &&
+        curr === Math.abs(board[row][col + 2])
       ) {
-        board[row][col] = board[row][col + 1] = board[row][col + 2] = -curr
-        runAgain = true
+        //this is where we mark, and set the runAgain true
+        board[row][col] = board[row][col + 1] = board[row][col + 2] = -curr;
+        runAgain = true;
       }
     }
   }
-
+  //same thing but vertical
   for (let row = 0; row + 2 < rows; row++) {
-    for (let col = 0; col < colums; col++) {
-      let curr = Math.abs(board[row + 1][col])
-
+    for (let col = 0; col < columns; col++) {
+      let curr = Math.abs(board[row][col]);
       if (
         curr !== 0 &&
         curr === Math.abs(board[row + 1][col]) &&
         curr === Math.abs(board[row + 2][col])
       ) {
         board[row][col] = board[row + 1][col] = board[row + 2][col] = -curr;
-        runAgain = true
+        runAgain = true;
       }
     }
   }
-
+  //drop the board with gravity function
   const gravity = grid => {
     for (let col = 0; col < grid[0].length; col++) {
-      let nums = []
-      for (let row = grid.length - 1; row >= 0; row--) {
-        nums.push(grid[row][col])
+      let nums = [];
+      for (let row = 0; row < grid.length; row++) {
+        nums.push(grid[row][col]);
       }
-      let filtered = nums.filter(el => el > 0)
+      let filtered = nums.filter(el => el > 0);
       for (let row = grid.length - 1; row >= 0; row--) {
-        let num = filtered.pop()
-        if (num) grid[row][col] = num
-
-        else grid[row][col] = 0
+        let num = filtered.pop();
+        if (num) grid[row][col] = num;
+        else grid[row][col] = 0;
       }
     }
-    return grid
-  }
-  let grid = gravity(board)
-  return runAgain ? candyCrush(grid) : board
-}
+    return grid;
+  };
+
+  let grid = gravity(board);
+  return runAgain ? candyCrush(grid) : board;
+};
