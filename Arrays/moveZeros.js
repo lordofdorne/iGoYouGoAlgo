@@ -18,6 +18,10 @@ const moveZeros = nums => {
 //make variable 'placeNonZeros' or 'j'
 //time complexity = O(n)
 //space = O(1)
+
+//set a nonZero pointer at 0
+//loop through array if a number !== 0 we will swap its place with our non zero pointer and increment the pointer
+//exit the loop and loop again setting i at the nonzero pointer, then set the rest of the elems in the array to 0
 const secondSolution = nums => {
   let placeNonZeros = 0
 

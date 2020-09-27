@@ -34,3 +34,5 @@ const firstUniqeChar = s => {
   }
   return -1;
 }
+
+//time: O(n)
