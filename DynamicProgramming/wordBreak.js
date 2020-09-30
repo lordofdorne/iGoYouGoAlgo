@@ -26,7 +26,7 @@
 //1st loop frm end of word, 2nd loop frm start of word
 //continue if current word isnt valid
 //create word by slicing
-//if our set has the word set it as true in our table and break
+//if our set has the word set it as true in our table  and break
 //exit outer loop and return the array with at the length of our string
 
 

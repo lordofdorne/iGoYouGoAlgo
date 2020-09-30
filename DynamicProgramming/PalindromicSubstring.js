@@ -10,7 +10,7 @@
 // Input: "cbbd"
 // Output: "bb"
 // loop through string while decrementing
-//set pointers f 
+//set pointers 
 //while loop
 // create substring with pointers then check if subsring is palindrome with helper
 //increment/ decrement then return empty string 
