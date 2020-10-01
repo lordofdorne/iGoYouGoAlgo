@@ -8,7 +8,7 @@ const flattenTree = (root) => {
     //check for children if they exist add them to stack
     if (node.left) helper(node.left, stack)
     if (node.right) helper(node.right, stack)
-    return arr
+    return stack
   }
 
   //insert the tree into the helper function

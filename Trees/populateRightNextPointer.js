@@ -11,6 +11,9 @@
 // Initially, all next pointers are set to NULL.
 
 
+//create queue with root
+//while queue, loop through its size, set current as the first elem
+
 const populate = root => {
   if (!root) return root
   let queue = [root]

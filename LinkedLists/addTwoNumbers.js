@@ -52,3 +52,32 @@ const addTwoNums = (l1, l2) => {
   }
   return traverse(l1, l2, result, 0);
 }
+//-----------------------------------------------------------------------
+//create dummylist, set tail as dummy, set carry at 0
+//while we have have our list OR carry
+//set value1,value2,and sum, sum is both values and carry
+//values are: if we l1 then l1.val : 0
+//tail.next is a new list node but sum % 10 is the start value; becasue we just need the last digit
+//move tail up the list
+//if sum is greater than/equal to 10 carry is 1 else its 0
+//move up both lists including current and next
+//break while loop and return dummy.next
+const addUp = (l1, l2) => {
+  const dummy = new ListNode();
+  let tail = dummy;
+  let c = 0;
+
+  while (l1 || l2 || c) {
+    const v1 = l1 ? l1.val : 0;
+    const v2 = l2 ? l2.val : 0;
+    const v = v1 + v2 + c;
+
+    tail.next = new ListNode(v % 10);
+    tail = tail.next;
+    c = v >= 10 ? 1 : 0;
+    l1 = l1 && l1.next;
+    l2 = l2 && l2.next;
+  }
+
+  return dummy.next;
+}
