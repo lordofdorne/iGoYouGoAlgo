@@ -14,6 +14,19 @@
 // Output: "abcd"
 // Explanation: There's nothing to delete.
 
+
+
+//create stack
+//loop through stack setting current and peek
+//if stack is empty or top of peek is not current push current and count of 1
+//else we have adjacent so increment the count prop in peek, check if count is equal to target, if so pop off stack
+//exit loop create result string
+// for of with char and count of stack
+//add the char with count repeat to result string
+//return res string
+
+
+
 //time complexity: O(n) linear because we go through the whole string
 //space complexity: O(n) linear as well
 //we use stack because we need adjacanent elements so the last element 

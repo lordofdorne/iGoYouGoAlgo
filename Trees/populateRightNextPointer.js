@@ -12,7 +12,10 @@
 
 
 //create queue with root
-//while queue, loop through its size, set current as the first elem
+//while queue, create size, loop through size, set current as  elem from queue
+//if the index is less than size - 1. set currents next as the first elem from queue
+//if we have a right and left push each into queue respevtively
+//break while loop and return root
 
 const populate = root => {
   if (!root) return root

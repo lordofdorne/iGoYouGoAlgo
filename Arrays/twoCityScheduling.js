@@ -21,6 +21,13 @@ twocity = costs => {
   //At this point, you will have a list organized by the money you would save flying to A from greatest savings to least.
   //Then iterate through the array taking the cost of a from the first half and the cost of b for the second half.
 
+
+  //helper function to track money lost from least to greatest
+  //sort the costs argument using the helper function
+  //set a totalCost var to zero
+  //for loop with 2 pointers, i is zero, j is half of cost, j is less than cost, both incriment
+  //add everything to total  cost, costs[i] + costs[j]
+
   const monelLost = arr => {
 
     return arr[0] - arr[1]
