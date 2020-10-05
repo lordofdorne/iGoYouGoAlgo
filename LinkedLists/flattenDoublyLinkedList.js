@@ -22,8 +22,8 @@
 //the tail is basically the glue
 //if no head return null
 //check for head.next if it exists flatten with a tail
-//check tail, if it exists we can link it to head.next
-//if child exists we set its tail to head.next and its prev to the head and ending the list by setting child to null
+//else if check tail, if it exists we can link it to head.next-tail and tail.prev to head
+//check child, its next should be flatten with the child and next, its next prev should be head, child null
 //lastly we return head
 
 

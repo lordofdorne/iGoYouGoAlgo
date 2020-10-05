@@ -11,6 +11,13 @@
 // Output: [[1,5]]
 // Explanation: Intervals [1,4] and [4,5] are considered overlapping.
 
+//create res array
+//sort intervals by first elem
+//loop through intervals, set pre as top of res
+//check for index is 0 or overlapping 10 > 1, if so push current
+//else set previous 1, i0
+//return res
+
 const merge = intervals => {
   let res = []
 

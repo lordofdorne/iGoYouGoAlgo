@@ -28,7 +28,7 @@
 
 
 //time complexity: O(n) linear because we go through the whole string
-//space complexity: O(n) linear as well
+//space complexity: O(n) linear as well, as input size increases my space may increase as well
 //we use stack because we need adjacanent elements so the last element 
 const removeDuplicates = (s, k) => {
   //initialize the stack
