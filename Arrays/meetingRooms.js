@@ -12,7 +12,7 @@
 //sort intervals by start times
 //create rooms which is the first elem of intervals in an array
 //loop through intervals create meeting, room, and roomTaken boolean
-//nested loop through rooms
+//nested loop through rooms and set room
 //if room is meeting continue
 //if second room less than or eql to current time set as null to clear room
 // if room is null and isnt taken set roomj as meeting, set roomtaken to true

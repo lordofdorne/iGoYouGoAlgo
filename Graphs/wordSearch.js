@@ -16,10 +16,24 @@
 // Given word = "ABCB", return false.
 
 //use DFS
+//create rows and colums
+//nested loop, if board at row/col is first lette in words and dfs function r/c/0 return true
+//DFS(r,c,idx)- if word len equals idx return true
+//row bounds and if board r/c doesnt equal word[idx]
+//mark visited with #
+//call dfs with || if so return true
+//reset by setting to word[idx]
+//break return false
 
 const wordSearch = (board, word) => {
   const rows = board.length
   const colums = board[0].length;
+
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < colums; c++) {
+      if (board[r][c] === word[0] && callDFS(r, c, 0)) return true;
+    }
+  }
 
   function callDFS(r, c, idx) {
     if (word.length === idx) return true;
@@ -35,10 +49,6 @@ const wordSearch = (board, word) => {
     board[r][c] = word[idx]; // reset the board
   }
 
-  for (let r = 0; r < rows; r++) {
-    for (let c = 0; c < colums; c++) {
-      if (board[r][c] === word[0] && callDFS(r, c, 0)) return true;
-    }
-  }
+
   return false;
 }
