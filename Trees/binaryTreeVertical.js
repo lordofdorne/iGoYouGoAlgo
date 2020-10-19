@@ -25,6 +25,16 @@
 
 //solved with BFS
 
+//if not root return array
+//set rootoffset, rootlevel, queue, and result array
+//while queue make node
+//if the res array has rootlevel + node offset - push val into it
+//else if the offset is less than 0 unshift [nodeval]. increment rootlevel
+//else push the [node val]
+//if left node, left offset = offset - 1, then push nodeleft
+//if right node, right offset = offset +1, then push noderight
+//return res
+
 const vertical = root => {
   if (!root) return []
 
@@ -47,7 +57,7 @@ const vertical = root => {
     }
 
     if (node.left) {
-      node.left.offset - node.offset - 1
+      node.left.offset = node.offset - 1
       queue.push(node.left)
     }
 

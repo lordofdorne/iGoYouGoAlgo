@@ -7,6 +7,15 @@
 
 // Finally, we join all the pieces in the stack
 
+//create stack
+//for of through s, if is not a closing push into stack and continue
+//curr is stack.pop and result is ''
+//while curr is not an opening, result = curr + resulr, curr is stack.pop
+//num is '' curr is stack.pop()
+//while non num is a num on a num(curr) - num = curr + num, curr = stack.pop()
+//push curr into stack, push the str repeat Num(num)
+//return stack.join(')
+
 const decodeString = s => {
   const stack = []
 
