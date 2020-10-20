@@ -19,9 +19,15 @@
 // Time: O(1)
 // Space: O(capacity) since the space is used only for an ordered dictionary with at most capacity + 1 elements.
 
+//create map and capacity in class
+// get funciton, if no key in map return -1 and create value
+//delete key, set keyval, return val
+//put function, update map by delete and set, check for size less than capacity
+//if so create first item, delete firstItem 
+
 class LRUCache {
   constructor(capacity) {
-    this.map = new Map
+    this.map = new Map()
     this.capacity = capacity
   }
 
