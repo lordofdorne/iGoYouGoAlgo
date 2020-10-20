@@ -26,27 +26,31 @@
 //second map has start and end times of journey over time it could hit every possible pais of the S stations whihc would make it O(S^)
 //we dont know which is larger so we add them both together giving us O(P + S^2)
 
+//createe class with map and average
+//checkin takes id,timestamp,stationName, set the cutomer with id {sn,ts}
+//checkout takes same, create checkin,error if no checkin, create station key
+//create sum count obj which is avg key or 0
+//set key and {sum: s + t-ct, c: c:1=c+1}
+//getavg takes start and end, create sumcount obj whch is avgget ss - es or 0
+//return sum / count
+
+
 class UndergroundSystem {
-  customer = new Map()
-  avg = new Map()
+  customer = new Map();
+  avg = new Map();
 
-  //id-num, station-string, t-num
-  checkin(id, stationName, t) {
-    this.customer.set(id, { stationName, t })
+  checkIn(id, stationName, timeStamp) {
+    this.customer.set(id, { stationName, timeStamp });
   }
-
-  checkout(id, stationName, t) {
-    const checkIn = this.customer.get(id)
-
-    if (!checkIn) throw new Error(`Customer ${id} never checkin in`)
-    const key = `${checkIn.stationName} - ${stationName}`
-    const { sum, count } = this.avg.get(key)
-    this.avg.set(key, { sum: sum + (t - checkIn.t), count: count + 1 })
-
+  checkOut(id, stationName, timeStamp) {
+    const checkIn = this.customer.get(id);
+    if (!checkIn) throw new Error(`Customer ${id} didn't checked in`);
+    const key = `${checkIn.stationName}-${stationName}`;
+    const { sum, count } = this.avg.get(key) || { sum: 0, count: 0 };
+    this.avg.set(key, { sum: sum + (timeStamp - checkIn.timeStamp), count: count + 1 });
   }
-
   getAverageTime(startStation, endStation) {
-    const { sum, count } = this.avg.get(`${startStation} - ${endStation}`)
-    return sum / count
+    const { sum, count } = this.avg.get(`${startStation}-${endStation}`) || { sum: 0, count: 0 }
+    return sum / count;
   }
 }
