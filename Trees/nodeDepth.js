@@ -7,8 +7,9 @@ class BinaryTree {
 }
 
 const nodeDepth = (root, depth = 0) => {
-  if (root === null) return depth
-
+  //base case
+  if (root === null) return 0
+  //recursive call while keeping track of depth
   return depth + nodeDepth(root.left, depth + 1) + nodeDepth(root.right, depth + 1)
 
 }
