@@ -7,22 +7,23 @@ class BinaryTree {
 }
 
 //O(n) time | O(n) space where n is the number of nodes
+
 function branchSums(root) {
-  const sumsArray = []
+  // Write your code here.
+  const sums = []
 
-  trackSum(root, 0, sums)
-  return sumsArray
-
+  addSums(root, 0, sums)
+  return sums
 }
 
-const trackSum = (node, sum, sumsArray) => {
-  if (!node) return;
+function addSums(node, newSum, sums) {
+  if (!node) return 0
 
-  const theSum = sum + node.value
-
+  const branchSum = newSum + node.value
   if (!node.left && !node.right) {
-    sumsArray.push(theSum)
+    sums.push(branchSum)
   }
-  trackSum(node.left, theSum, sums)
-  trackSum(node.right, theSum, sums)
+
+  addSums(node.left, branchSum, sums)
+  addSums(node.right, branchSum, sums)
 }
