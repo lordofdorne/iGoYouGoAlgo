@@ -20,6 +20,7 @@
 // Output: 2
 
 const paintHouses = costs => {
+  if (costs.length === 0) return 0
 
   let redCost = costs[0][0]
   let blueCost = costs[0][1]
