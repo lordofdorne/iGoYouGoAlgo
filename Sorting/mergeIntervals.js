@@ -16,7 +16,9 @@
 //loop through intervals, set pre as top of res
 //check for index is 0 or overlapping 10 > 1, if so push current
 //else set previous 1, i0
-//return res
+// //return res
+// Given an array of intervals where intervals[i] = [starti, endi], merge all overlapping intervals, and return an array of the non-overlapping intervals that cover all the intervals in the input.
+
 
 const merge = intervals => {
   let res = []
