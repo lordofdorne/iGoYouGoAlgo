@@ -3,7 +3,7 @@
 //if the letter exists in map incriment else create the values in map. 
 //exit for loop, then use for in loop is smap[letter] !== tmap[letter] we know its false
 //if we get through both loops return true
-
+// asim
 const anagram = (s, t) => {
   if (s.length !== t.length) return false
 
