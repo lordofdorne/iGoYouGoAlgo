@@ -24,7 +24,7 @@ const maxProfit = (prices) => {
 
     //the inner loop compares prices[i] to the future prices to compare
 
-    for (let j = i + 1; j < prices.lengthl j++) {
+    for (let j = i + 1; j < prices.lengthl; j++) {
       let profit = prices[j] - prices[i]
 
       if (profit > maxProfit) maxProfit = profit
@@ -38,7 +38,7 @@ const maxProfit = (prices) => {
 
 // Space complexity : O(1) + O(1) = O(1)
 
-const maxProfit = function (prices) {
+const maxProfitOptimizedx = function (prices) {
   //intialize a variable to keep count of the current highest profit
   let maxProfit = 0;
   //we can also initialize min at prices[0] because the starting value of min will most likely be reassigned when we see a lower price-point
