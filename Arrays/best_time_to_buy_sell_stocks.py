@@ -18,4 +18,22 @@ from typing import List
 # Input: prices = [7,6,4,3,1]
 # Output: 0
 # Explanation: In this case, no transactions are done and the max profit = 0.
+
+
 def maxProfit(self, prices: List[int]) -> int:
+    # init left pointer on day one (day that we buy)
+    left = 0
+    # init right pointer on day two (day that we sell)
+    right = 1
+    max_profit = 0
+
+    while(right < len(prices)):
+        # check for profit
+        if prices[left] < prices[right]:
+            profit = prices[right] - prices[left]
+            max_profit = max(profit, max_profit)
+        # if there it no profit move sliders
+        else:
+            left = right
+        right += 1
+    return max_profit
