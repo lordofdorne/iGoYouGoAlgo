@@ -31,3 +31,9 @@ def isAnagram(s: str, t: str) -> bool:
     for i in range(len(s)):
         s_map[i] = 1 + s_map.get(s[i], 0)
         t_map[i] = 1 + t_map.get(t[i], 0)
+    
+    for c in s_map:
+        if s_map.get(c) != t_map.get(c):
+            return False
+
+    return True
