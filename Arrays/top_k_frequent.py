@@ -20,19 +20,25 @@
 # It is guaranteed that the answer is unique.
 
 def topKFrequent(nums, k):
-    
+    # init hashmap and bucket
     hashmap = {}
     bucket = [[] for i in range(len(nums) + 1)]
 
+    # build map with {value: count}
     for n in nums:
         hashmap[n] = 1 + hashmap.get(n, 0)
 
+    # insert each value into the bucket based on its count
     for n,c in hashmap.items():
         bucket[c].append(n)
-    
+
+    # loop through the bucket backwards
     res = []
     for i in range(len(bucket) - 1, 0, -1):
+        # loop through nested bucket
         for n in bucket[i]:
+            # loop through the bucket backwards
             res.append(n)
+            # when the result array is as big as the target we should get a valid response
             if len(res) == k:
                 return res
