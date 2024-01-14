@@ -1,3 +1,4 @@
+from collections import OrderedDict
 # Design a data structure that follows the constraints of a Least Recently Used (LRU) cache.
 
 # Implement the LRUCache class:
@@ -78,3 +79,29 @@ class LRUCache:
 # obj = LRUCache(capacity)
 # param_1 = obj.get(key)
 # obj.put(key,value)
+
+
+
+class LRUCache2:
+
+    def __init__(self, capacity: int):
+        self.capacity=capacity
+        self.cache=OrderedDict()
+        
+
+    def get(self, key: int) -> int:
+        if key not in self.cache:
+            return -1
+
+        value=self.cache.pop(key)
+        self.cache[key]=value
+        return value 
+
+    def put(self, key: int, value: int) -> None:
+        if key in self.cache:
+            self.cache.pop(key)
+
+        elif len(self.cache)==self.capacity:
+            self.cache.popitem(last=False)
+
+        self.cache[key]=value          
