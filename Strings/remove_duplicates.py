@@ -26,7 +26,7 @@
 
 def removeDuplicates(word: str, k: int) -> str:
     stack = [] 
-    for letter in word:            
+    for letter in word:
         if stack and stack[-1][0] == letter:
             stack[-1][1] += 1
         else:
