@@ -1,3 +1,7 @@
+# BFS on a grid (R rows, C cols)
+# Time: O(R * C) — each cell visited at most once.
+# Space: O(R * C) for visited and queue in the worst case.
+
 num_rows, num_cols = len(grid), len(grid[0])
 def get_neighbors(coord):
     row, col = coord

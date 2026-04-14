@@ -1,3 +1,8 @@
+# Two pointers
+# - Opposite ends: O(n) time, O(1) extra space (each index moves at most once).
+# - Same direction: O(n) time, O(1) extra space (fast scans once; slow only advances).
+# Assumes process/condition are O(1) per step.
+
 def process(left, right):
     pass
 

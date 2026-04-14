@@ -1,3 +1,8 @@
+# Binary search (sorted array / predicate on index)
+# Time: O(log n)  Space: O(1) extra (assuming feasible(mid) is O(1)).
+
+from typing import List
+
 def feasible(mid):
     pass
 

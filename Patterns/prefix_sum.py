@@ -1,3 +1,7 @@
+# Prefix sum
+# Build: O(n) time, O(n) space.
+# Each range query: O(1) time.
+
 def build_prefix_sum(arr):
     n = len(arr)
     prefix_sum = [0] * n

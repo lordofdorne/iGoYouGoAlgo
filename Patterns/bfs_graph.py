@@ -1,3 +1,6 @@
+# BFS on a graph (V vertices, E edges)
+# Time: O(V + E)  Space: O(V) for queue + visited (auxiliary; adjacency is separate).
+
 from collections import deque
 
 def bfs(root):

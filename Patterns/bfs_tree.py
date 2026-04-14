@@ -1,3 +1,9 @@
+# BFS on a tree (n nodes)
+# Time: O(n)
+# Space: O(w) for queue where w is max width; O(n) worst case.
+
+from collections import deque
+
 def bfs(root):
     queue = deque([root])
     while len(queue) > 0:

@@ -1,3 +1,7 @@
+# Monotonic stack
+# Time: O(n) — each element pushed once, popped at most once.
+# Space: O(n) for the stack.
+
 def mono_stack(insert_entries):
     stack = []
     for entry in insert_entries:

@@ -1,3 +1,7 @@
+# Shortest valid subarray/window (flexible sliding window)
+# Time: O(n) amortized when each pointer moves at most O(n) steps total.
+# Space: O(n) worst case if the window is stored as a list; often O(1) auxiliary beyond input.
+
 def sliding_window_flexible_shortest(input):
     window = []
     ans = 0

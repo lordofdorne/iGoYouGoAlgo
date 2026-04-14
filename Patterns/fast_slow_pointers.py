@@ -1,3 +1,6 @@
+# Fast/slow pointers (same-direction two pointers)
+# Time: O(n)  Space: O(1) extra (assuming O(1) work per step)
+
 def two_pointers_same(arr):
     slow, fast = 0, 0
     while fast < len(arr):

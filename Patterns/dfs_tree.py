@@ -1,3 +1,6 @@
+# DFS on a binary tree (n nodes, height h)
+# Time: O(n)  Space: O(h) recursion stack — O(log n) balanced, O(n) skewed.
+
 def dfs(root, target):
     if root is None:
         return None
