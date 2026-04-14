@@ -10,6 +10,6 @@ My solution to common Data Structres and Algorithm Questions
 
 
 
-## Authors
+## Author
 Asim Samuel
 [@VeganPorkChopz](https://www.instagram.com/veganporkchopz/)
